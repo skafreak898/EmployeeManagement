@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnProcessFile = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.rbShow3 = new System.Windows.Forms.RadioButton();
+            this.rbShow5 = new System.Windows.Forms.RadioButton();
+            this.rbShowAll = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.FirstNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,38 +77,38 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // radioButton1
+            // rbShow3
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(104, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Show 3 Records";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbShow3.AutoSize = true;
+            this.rbShow3.Location = new System.Drawing.Point(12, 37);
+            this.rbShow3.Name = "rbShow3";
+            this.rbShow3.Size = new System.Drawing.Size(104, 17);
+            this.rbShow3.TabIndex = 3;
+            this.rbShow3.TabStop = true;
+            this.rbShow3.Text = "Show 3 Records";
+            this.rbShow3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbShow5
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(122, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 17);
-            this.radioButton2.TabIndex = 4;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Show 5 Records";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbShow5.AutoSize = true;
+            this.rbShow5.Location = new System.Drawing.Point(122, 37);
+            this.rbShow5.Name = "rbShow5";
+            this.rbShow5.Size = new System.Drawing.Size(104, 17);
+            this.rbShow5.TabIndex = 4;
+            this.rbShow5.TabStop = true;
+            this.rbShow5.Text = "Show 5 Records";
+            this.rbShow5.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbShowAll
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(232, 37);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(109, 17);
-            this.radioButton3.TabIndex = 5;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Show All Records";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rbShowAll.AutoSize = true;
+            this.rbShowAll.Location = new System.Drawing.Point(232, 37);
+            this.rbShowAll.Name = "rbShowAll";
+            this.rbShowAll.Size = new System.Drawing.Size(109, 17);
+            this.rbShowAll.TabIndex = 5;
+            this.rbShowAll.TabStop = true;
+            this.rbShowAll.Text = "Show All Records";
+            this.rbShowAll.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -205,14 +205,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 308);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbShowAll);
+            this.Controls.Add(this.rbShow5);
+            this.Controls.Add(this.rbShow3);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnProcessFile);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,9 +225,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnProcessFile;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton rbShow3;
+        private System.Windows.Forms.RadioButton rbShow5;
+        private System.Windows.Forms.RadioButton rbShowAll;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastNameCol;
