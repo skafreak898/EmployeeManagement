@@ -87,6 +87,7 @@
             this.rbShow3.TabStop = true;
             this.rbShow3.Text = "Show 3 Records";
             this.rbShow3.UseVisualStyleBackColor = true;
+            this.rbShow3.CheckedChanged += new System.EventHandler(this.rbShow3_CheckedChanged);
             // 
             // rbShow5
             // 
