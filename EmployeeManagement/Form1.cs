@@ -29,21 +29,19 @@ namespace EmployeeManagement
 
         }
 
-        
+        // Outdated/Removed
         private void rbShow3_CheckedChanged(object sender, EventArgs e)
         {
             
         }
         
-
-        
+        // Outdated/Removed
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
             
         }
         
-
-        
+        // Outdated/Removed
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
             
@@ -85,8 +83,7 @@ namespace EmployeeManagement
                     {
                         if (rbShow3.Checked)
                         {
-                            /* This statement might eliminate the checked event
-                             * for each of the radio buttons */
+                            // Read data and stop adding rows after 3 records
                              if (dataGridView1.Rows.Count < 3)
                             {
                                 dataGridView1.Rows.Add(
@@ -106,8 +103,7 @@ namespace EmployeeManagement
 
                         if (rbShow5.Checked)
                         {
-                            /* This statement might eliminate the checked event
-                             *  for each of the radio buttons */
+                            // Read data and stop adding rows after 5 records
                              if (dataGridView1.Rows.Count < 5)
                             {
                                 dataGridView1.Rows.Add(
