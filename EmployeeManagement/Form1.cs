@@ -29,7 +29,7 @@ namespace EmployeeManagement
 
         }
 
-        /*
+        
         private void rbShow3_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShow3.Checked == true)
@@ -48,9 +48,9 @@ namespace EmployeeManagement
                 }
             }
         }
-        */
+        
 
-        /*
+        
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShow5.Checked == true)
@@ -69,9 +69,9 @@ namespace EmployeeManagement
                 }
             }
         }
-        */
+        
 
-        /*
+        
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShowAll.Checked == true)
@@ -83,7 +83,7 @@ namespace EmployeeManagement
                 }
             }
         }
-        */
+        
 
         private void btnProcessFile_Click(object sender, EventArgs e)
         {
