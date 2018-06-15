@@ -99,6 +99,7 @@
             this.rbShow5.TabStop = true;
             this.rbShow5.Text = "Show 5 Records";
             this.rbShow5.UseVisualStyleBackColor = true;
+            this.rbShow5.CheckedChanged += new System.EventHandler(this.rbShow5_CheckedChanged);
             // 
             // rbShowAll
             // 
