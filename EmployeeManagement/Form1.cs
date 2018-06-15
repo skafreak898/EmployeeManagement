@@ -1,4 +1,11 @@
-﻿using System;
+﻿ //Brandon Walker
+ //POS/409
+ //Week 1 Individual Employee Management
+ //Instructor: John Becton
+ //Due Date: June 11, 2018
+ 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
