@@ -66,5 +66,17 @@ namespace EmployeeManagement
                 }
             }
         }
+
+        private void rbShowAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbShowAll.Checked == true)
+            {
+                // For loop to get row count and make all rows visible.
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Visible = true;
+                }
+            }
+        }
     }
 }

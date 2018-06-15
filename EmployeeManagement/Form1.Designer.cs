@@ -111,6 +111,7 @@
             this.rbShowAll.TabStop = true;
             this.rbShowAll.Text = "Show All Records";
             this.rbShowAll.UseVisualStyleBackColor = true;
+            this.rbShowAll.CheckedChanged += new System.EventHandler(this.rbShowAll_CheckedChanged);
             // 
             // dataGridView1
             // 
