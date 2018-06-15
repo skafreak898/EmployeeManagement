@@ -32,6 +32,7 @@ namespace EmployeeManagement
         
         private void rbShow3_CheckedChanged(object sender, EventArgs e)
         {
+            /*
             if (rbShow3.Checked == true)
             {
                 // For loop to get row count and hide all rows
@@ -46,13 +47,14 @@ namespace EmployeeManagement
                         dataGridView1.Rows[j].Visible = true;
                     }
                 }
-            }
+            }*/
         }
         
 
         
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
+            /*
             if (rbShow5.Checked == true)
             {
                 // For loop to get row count and hide all rows
@@ -67,13 +69,14 @@ namespace EmployeeManagement
                         dataGridView1.Rows[j].Visible = true;
                     }
                 }
-            }
+            }*/
         }
         
 
         
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
+            /*
             if (rbShowAll.Checked == true)
             {
                 // For loop to get row count and make all rows visible.
@@ -81,7 +84,7 @@ namespace EmployeeManagement
                 {
                     dataGridView1.Rows[i].Visible = true;
                 }
-            }
+            }*/
         }
         
 
