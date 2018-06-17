@@ -88,62 +88,25 @@ namespace EmployeeManagement
                     // Create new object called employee for each row
                     try
                     {
-                        if (rbShow3.Checked)
-                        {
-                            // Read data and stop adding rows after 3 records
-                             if (dataGridView1.Rows.Count < 3)
-                            {
-                                dataGridView1.Rows.Add(
-                                    lineDataRow.ElementAt(0),
-                                    lineDataRow.ElementAt(1),
-                                    lineDataRow.ElementAt(2),
-                                    lineDataRow.ElementAt(3),
-                                    lineDataRow.ElementAt(4),
-                                    lineDataRow.ElementAt(5),
-                                    lineDataRow.ElementAt(6),
-                                    lineDataRow.ElementAt(7),
-                                    lineDataRow.ElementAt(8),
-                                    lineDataRow.ElementAt(9)
-                                );
-                            }
-                        }
+                        // Create new object
+                        Employee emp = new Employee();
+                        emp.Developer = new Developer();
+                        emp.Manager = new Manager();
 
-                        if (rbShow5.Checked)
-                        {
-                            // Read data and stop adding rows after 5 records
-                             if (dataGridView1.Rows.Count < 5)
-                            {
-                                dataGridView1.Rows.Add(
-                                    lineDataRow.ElementAt(0),
-                                    lineDataRow.ElementAt(1),
-                                    lineDataRow.ElementAt(2),
-                                    lineDataRow.ElementAt(3),
-                                    lineDataRow.ElementAt(4),
-                                    lineDataRow.ElementAt(5),
-                                    lineDataRow.ElementAt(6),
-                                    lineDataRow.ElementAt(7),
-                                    lineDataRow.ElementAt(8),
-                                    lineDataRow.ElementAt(9)
-                                );
-                            }
-                        }
+                        // Assign the data to the employee object from the array by index
+                        emp.FirstName = lineDataRow.ElementAt(0);
+                        emp.LastName = lineDataRow.ElementAt(1);
+                        emp.StreetAddress = lineDataRow.ElementAt(2);
+                        emp.City = lineDataRow.ElementAt(3);
+                        emp.State = lineDataRow.ElementAt(4);
+                        emp.Zip = lineDataRow.ElementAt(5);
+                        emp.Developer.DeveloperType = lineDataRow.ElementAt(6);
+                        emp.Manager.CostCenter = lineDataRow.ElementAt(7);
+                        emp.Developer.Supervisor = lineDataRow.ElementAt(8);
+                        emp.Developer.TaxType = lineDataRow.ElementAt(9);
 
-                        if (rbShowAll.Checked)
-                        {
-                            // Read all data into dataGrid
-                            dataGridView1.Rows.Add(
-                                lineDataRow.ElementAt(0),
-                                lineDataRow.ElementAt(1),
-                                lineDataRow.ElementAt(2),
-                                lineDataRow.ElementAt(3),
-                                lineDataRow.ElementAt(4),
-                                lineDataRow.ElementAt(5),
-                                lineDataRow.ElementAt(6),
-                                lineDataRow.ElementAt(7),
-                                lineDataRow.ElementAt(8),
-                                lineDataRow.ElementAt(9)
-                            );
-                        }
+                        // With each pass, add new employee record to employeeData list
+                        employeeData.Add(emp);
                     }
                     catch (Exception)
                     {
