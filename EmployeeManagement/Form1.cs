@@ -107,6 +107,14 @@ namespace EmployeeManagement
 
                         // With each pass, add new employee record to employeeData list
                         employeeData.Add(emp);
+
+                        // Add data to DGV
+                        // ***** Need to set break points and figure out why data is multiplying *****
+                        for (int i = 0; i < employeeData.Count; i++)
+                        {
+                            dataGridView1.Rows.Add(lineDataRow);
+                        }
+                        
                     }
                     catch (Exception)
                     {
