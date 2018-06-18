@@ -36,22 +36,57 @@ namespace EmployeeManagement
 
         }
 
-        // Outdated/Removed
+        // When show 3 is checked, only show 3 rows
         private void rbShow3_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbShow3.Checked == true)
+            {
+                // For loop to get row count and hide all rows
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    // Initially hide each row
+                    dataGridView1.Rows[i].Visible = false;
+                    
+                    // Iterate through rows and make first 3 visible
+                    for (int j = 0; j < 3; j++)
+                    {
+                        dataGridView1.Rows[j].Visible = true;
+                    }
+                }
+            }
         }
         
-        // Outdated/Removed
+        // When show 5 is checked, only show 5 rows
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbShow5.Checked == true)
+            {
+                // For loop to get row count and hide all rows
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    // Initially hide each row
+                    dataGridView1.Rows[i].Visible = false;
+                    
+                    // Iterate through rows and make first 5 visible
+                    for (int j = 0; j < 5; j++)
+                    {
+                        dataGridView1.Rows[j].Visible = true;
+                    }
+                }
+            }
         }
         
-        // Outdated/Removed
+        // When show all is checked, show everything
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbShowAll.Checked == true)
+            {
+                // For loop to get rown count and make all rows visible.
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Visible = true;
+                }
+            }
         }
         
 
@@ -109,12 +144,7 @@ namespace EmployeeManagement
                         employeeData.Add(emp);
 
                         // Add data to DGV
-                        // ***** Need to set break points and figure out why data is multiplying *****
-                        for (int i = 0; i < employeeData.Count; i++)
-                        {
-                            dataGridView1.Rows.Add(lineDataRow);
-                        }
-                        
+                        dataGridView1.Rows.Add(lineDataRow);
                     }
                     catch (Exception)
                     {
