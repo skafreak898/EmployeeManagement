@@ -42,9 +42,9 @@
             this.StateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ZipCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmployeeTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DevTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostCenterCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupervisorCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DevTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaxTypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -127,9 +127,9 @@
             this.StateCol,
             this.ZipCol,
             this.EmployeeTypeCol,
+            this.DevTypeCol,
             this.CostCenterCol,
             this.SupervisorCol,
-            this.DevTypeCol,
             this.TaxTypeCol});
             this.dataGridView1.Location = new System.Drawing.Point(12, 60);
             this.dataGridView1.Name = "dataGridView1";
@@ -179,6 +179,12 @@
             this.EmployeeTypeCol.Name = "EmployeeTypeCol";
             this.EmployeeTypeCol.ReadOnly = true;
             // 
+            // DevTypeCol
+            // 
+            this.DevTypeCol.HeaderText = "Dev Type";
+            this.DevTypeCol.Name = "DevTypeCol";
+            this.DevTypeCol.ReadOnly = true;
+            // 
             // CostCenterCol
             // 
             this.CostCenterCol.HeaderText = "Cost Center";
@@ -190,12 +196,6 @@
             this.SupervisorCol.HeaderText = "Supervisor";
             this.SupervisorCol.Name = "SupervisorCol";
             this.SupervisorCol.ReadOnly = true;
-            // 
-            // DevTypeCol
-            // 
-            this.DevTypeCol.HeaderText = "Dev Type";
-            this.DevTypeCol.Name = "DevTypeCol";
-            this.DevTypeCol.ReadOnly = true;
             // 
             // TaxTypeCol
             // 
@@ -240,9 +240,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StateCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn ZipCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeTypeCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DevTypeCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostCenterCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupervisorCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DevTypeCol;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaxTypeCol;
     }
 }

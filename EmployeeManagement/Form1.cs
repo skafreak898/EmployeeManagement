@@ -135,6 +135,8 @@ namespace EmployeeManagement
                         emp.City = lineDataRow.ElementAt(3);
                         emp.State = lineDataRow.ElementAt(4);
                         emp.Zip = lineDataRow.ElementAt(5);
+                        // *****Developer type should only show IF employee is a developer*****
+                        // *****Cost center only for managers, otherwise display 0*****
                         emp.Developer.DeveloperType = lineDataRow.ElementAt(6);
                         emp.Manager.CostCenter = lineDataRow.ElementAt(7);
                         emp.Developer.Supervisor = lineDataRow.ElementAt(8);
