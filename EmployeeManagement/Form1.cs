@@ -1,8 +1,8 @@
 ﻿ //Brandon Walker
  //POS/409
- //Week 1 Individual Employee Management
+ //Week 2 Individual Employee Management
  //Instructor: John Becton
- //Due Date: June 11, 2018
+ //Due Date: June 18, 2018
  
 
 using System;
@@ -20,9 +20,19 @@ namespace EmployeeManagement
 {
     public partial class Form1 : Form
     {
+        List<Employee> employees; // Create a typed list of contacts
+        Employee currentEmployee; // Create a single Employee instance
+        int currentPosition;      // Used to hold current position
+
         public Form1()
         {
             InitializeComponent();
+
+            // Maybe something here???? *************
+            employees = new List<Employee>();
+            currentEmployee = new Employee();
+            employees.Add(currentEmployee);
+            //currentPosition = 0;
         }
 
         // Exit Code
@@ -46,7 +56,7 @@ namespace EmployeeManagement
                 {
                     // Initially hide each row
                     dataGridView1.Rows[i].Visible = false;
-                    
+
                     // Iterate through rows and make first 3 visible
                     for (int j = 0; j < 3; j++)
                     {
@@ -55,7 +65,7 @@ namespace EmployeeManagement
                 }
             }
         }
-        
+
         // When show 5 is checked, only show 5 rows
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
@@ -66,7 +76,7 @@ namespace EmployeeManagement
                 {
                     // Initially hide each row
                     dataGridView1.Rows[i].Visible = false;
-                    
+
                     // Iterate through rows and make first 5 visible
                     for (int j = 0; j < 5; j++)
                     {
@@ -75,7 +85,7 @@ namespace EmployeeManagement
                 }
             }
         }
-        
+
         // When show all is checked, show everything
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
@@ -88,10 +98,71 @@ namespace EmployeeManagement
                 }
             }
         }
-        
 
         private void btnProcessFile_Click(object sender, EventArgs e)
         {
+            LoadFile();
+        }
+
+        private void tsbFindContact_Click(object sender, EventArgs e)
+        {
+            // Show if nothing entered in search bar
+            if (String.IsNullOrEmpty(tspSearchTerm.Text))
+            {
+                MessageBox.Show("Gotta enter something");
+                return;
+            }
+
+            LoadFile();
+
+            try
+            {
+                // Using LINQ to objects query to get first matching name
+                var foundEmployee =
+                    (from Employee in employees
+                     where Employee.FirstName == tspSearchTerm.Text
+                     select Employee).FirstOrDefault<Employee>();
+
+                // set the current employee to the found employee
+                currentEmployee = foundEmployee;
+                currentPosition = employees.IndexOf(currentEmployee);
+
+                //Update the display by loading the found employee
+                LoadCurrentEmployee();
+
+                //Clear the search term textbox and return
+                tspSearchTerm.Text = string.Empty;
+                return;
+            }
+
+            catch
+            {
+                MessageBox.Show("No Results Found");
+            }
+        }
+
+        private void ClearScreen()
+        {
+            // Clears all text fields
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtStreetAddress.Text = string.Empty;
+            txtCity.Text = string.Empty;
+            txtState.Text = string.Empty;
+            txtZip.Text = string.Empty;
+            //Rest goes here
+        }
+
+        private void LoadCurrentEmployee()
+        {
+            // Populate Text Fields with Employee Data
+            txtFirstName.Text = currentEmployee.FirstName;
+            txtLastName.Text = currentEmployee.LastName;
+        }
+
+        private void LoadFile()
+        {
+            // Load File Here
             string fileToRead = "";
 
             // Locate and load target file
@@ -147,6 +218,7 @@ namespace EmployeeManagement
 
                         // Add data to DGV
                         dataGridView1.Rows.Add(lineDataRow);
+
                     }
                     catch (Exception)
                     {
@@ -160,3 +232,5 @@ namespace EmployeeManagement
         string randomStringForDebug = "";
     }
 }
+
+
