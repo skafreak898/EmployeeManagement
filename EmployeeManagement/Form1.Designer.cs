@@ -74,6 +74,7 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.cboSearch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -239,7 +240,7 @@
             this.tsbFindContact,
             this.tsbNavBack,
             this.tsbNavForward});
-            this.toolStrip1.Location = new System.Drawing.Point(235, 4);
+            this.toolStrip1.Location = new System.Drawing.Point(362, 4);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(183, 25);
             this.toolStrip1.TabIndex = 7;
@@ -454,11 +455,24 @@
             this.textBox11.Size = new System.Drawing.Size(233, 20);
             this.textBox11.TabIndex = 29;
             // 
+            // cboSearch
+            // 
+            this.cboSearch.FormattingEnabled = true;
+            this.cboSearch.Items.AddRange(new object[] {
+            "First Name",
+            "Last Name",
+            "Street Address"});
+            this.cboSearch.Location = new System.Drawing.Point(238, 6);
+            this.cboSearch.Name = "cboSearch";
+            this.cboSearch.Size = new System.Drawing.Size(121, 21);
+            this.cboSearch.TabIndex = 30;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 467);
+            this.Controls.Add(this.cboSearch);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
@@ -547,6 +561,7 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.ComboBox cboSearch;
     }
 }
 

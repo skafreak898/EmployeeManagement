@@ -109,29 +109,94 @@ namespace EmployeeManagement
                 return;
             }
 
-            try
+            // Start if statement for combo box (cboSearch) first name
+            if (cboSearch.SelectedText == "First Name")
             {
-                // Using LINQ to objects query to get first matching first name
-                var foundEmployee =
-                    (from Employee in employees
-                     where Employee.FirstName == tspSearchTerm.Text
-                     select Employee).FirstOrDefault<Employee>();
+                // If try/catch statement for searching first name
+                try
+                {
+                    // Using LINQ to objects query to get first matchin first name
+                    var foundEmployee =
+                        (from Employee in employees
+                         where Employee.FirstName == tspSearchTerm.Text
+                         select Employee).FirstOrDefault<Employee>();
 
-                // set the current employee to the found employee for first name
-                currentEmployee = foundEmployee;
-                currentPosition = employees.IndexOf(currentEmployee);
+                    // set the current employee to the found employee for first name
+                    currentEmployee = foundEmployee;
+                    currentPosition = employees.IndexOf(currentEmployee);
 
-                //Update the display by loading the found employee
-                LoadCurrentEmployee();
+                    //Update the display by loading the found employee
+                    LoadCurrentEmployee();
 
-                //Clear the search term textbox and return
-                tspSearchTerm.Text = string.Empty;
-                return;
+                    //Clear the search term textbox and return
+                    tspSearchTerm.Text = string.Empty;
+                    return;
+                }
+
+                catch
+                {
+                    MessageBox.Show("No results found");
+                }
             }
 
-            catch
+            // Start if statement for combo box (cboSearch) last name
+            if (cboSearch.SelectedText == "Last Name")
             {
-                MessageBox.Show("No Results Found");
+                // If try/catch statement for last name
+                try
+                {
+                    // Using LINQ to objects query to get first matching last name
+                    var foundEmployee =
+                        (from Employee in employees
+                         where Employee.LastName == tspSearchTerm.Text
+                         select Employee).FirstOrDefault<Employee>();
+
+                    // set the current employee to the found employee for last name
+                    currentEmployee = foundEmployee;
+                    currentPosition = employees.IndexOf(currentEmployee);
+
+                    // Update the display by loading the found employee
+                    LoadCurrentEmployee();
+
+                    //Clear the search term textbox and return
+                    tspSearchTerm.Text = string.Empty;
+                    return;
+                }
+
+                catch
+                {
+                    MessageBox.Show("No results found");
+                }
+            }
+
+            //Start if statement for combo box (cboSearch) Street address
+            if (cboSearch.SelectedText == "Street Address")
+            {
+                // If try/catch statement for street address
+                try
+                {
+                    // Using LINQ to objects query to get first matching street address
+                    var foundEmployee =
+                        (from Employee in employees
+                         where Employee.StreetAddress == tspSearchTerm.Text
+                         select Employee).FirstOrDefault<Employee>();
+
+                    // set the current employee to the found employee for street address
+                    currentEmployee = foundEmployee;
+                    currentPosition = employees.IndexOf(currentEmployee);
+
+                    // update the display by loading the found employee
+                    LoadCurrentEmployee();
+
+                    // Clear the search term textbox and return
+                    tspSearchTerm.Text = string.Empty;
+                    return;
+                }
+
+                catch
+                {
+                    MessageBox.Show("No results found");
+                }
             }
         }
 
