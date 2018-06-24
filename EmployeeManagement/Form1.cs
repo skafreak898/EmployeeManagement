@@ -20,19 +20,13 @@ namespace EmployeeManagement
 {
     public partial class Form1 : Form
     {
-        List<Employee> employees; // Create a typed list of contacts
+        List<Employee> employees = new List<Employee>(); // Create a typed list of contacts
         Employee currentEmployee; // Create a single Employee instance
         int currentPosition;      // Used to hold current position
 
         public Form1()
         {
             InitializeComponent();
-
-            // Maybe something here???? *************
-            employees = new List<Employee>();
-            currentEmployee = new Employee();
-            employees.Add(currentEmployee);
-            //currentPosition = 0;
         }
 
         // Exit Code
@@ -106,6 +100,8 @@ namespace EmployeeManagement
 
         private void tsbFindContact_Click(object sender, EventArgs e)
         {
+            LoadFile();
+
             // Show if nothing entered in search bar
             if (String.IsNullOrEmpty(tspSearchTerm.Text))
             {
@@ -113,17 +109,15 @@ namespace EmployeeManagement
                 return;
             }
 
-            LoadFile();
-
             try
             {
-                // Using LINQ to objects query to get first matching name
+                // Using LINQ to objects query to get first matching first name
                 var foundEmployee =
                     (from Employee in employees
                      where Employee.FirstName == tspSearchTerm.Text
                      select Employee).FirstOrDefault<Employee>();
 
-                // set the current employee to the found employee
+                // set the current employee to the found employee for first name
                 currentEmployee = foundEmployee;
                 currentPosition = employees.IndexOf(currentEmployee);
 
@@ -158,6 +152,10 @@ namespace EmployeeManagement
             // Populate Text Fields with Employee Data
             txtFirstName.Text = currentEmployee.FirstName;
             txtLastName.Text = currentEmployee.LastName;
+            txtStreetAddress.Text = currentEmployee.StreetAddress;
+            txtCity.Text = currentEmployee.City;
+            txtState.Text = currentEmployee.State;
+            txtZip.Text = currentEmployee.Zip;
         }
 
         private void LoadFile()
@@ -213,9 +211,11 @@ namespace EmployeeManagement
                         emp.Developer.Supervisor = lineDataRow.ElementAt(8);
                         emp.Developer.TaxType = lineDataRow.ElementAt(9);
 
-                        // With each pass, add new employee record to employeeData list
+                        // With each pass, add new employee record to employeeData and employees list
                         employeeData.Add(emp);
+                        employees.Add(emp);
 
+                        
                         // Add data to DGV
                         dataGridView1.Rows.Add(lineDataRow);
 

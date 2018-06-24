@@ -111,7 +111,7 @@
             // 
             this.rbShow3.AutoSize = true;
             this.rbShow3.Checked = true;
-            this.rbShow3.Location = new System.Drawing.Point(15, 289);
+            this.rbShow3.Location = new System.Drawing.Point(15, 199);
             this.rbShow3.Name = "rbShow3";
             this.rbShow3.Size = new System.Drawing.Size(104, 17);
             this.rbShow3.TabIndex = 3;
@@ -123,7 +123,7 @@
             // rbShow5
             // 
             this.rbShow5.AutoSize = true;
-            this.rbShow5.Location = new System.Drawing.Point(125, 289);
+            this.rbShow5.Location = new System.Drawing.Point(125, 199);
             this.rbShow5.Name = "rbShow5";
             this.rbShow5.Size = new System.Drawing.Size(104, 17);
             this.rbShow5.TabIndex = 4;
@@ -134,7 +134,7 @@
             // rbShowAll
             // 
             this.rbShowAll.AutoSize = true;
-            this.rbShowAll.Location = new System.Drawing.Point(235, 289);
+            this.rbShowAll.Location = new System.Drawing.Point(235, 199);
             this.rbShowAll.Name = "rbShowAll";
             this.rbShowAll.Size = new System.Drawing.Size(109, 17);
             this.rbShowAll.TabIndex = 5;
@@ -159,7 +159,7 @@
             this.CostCenterCol,
             this.SupervisorCol,
             this.TaxTypeCol});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 312);
+            this.dataGridView1.Location = new System.Drawing.Point(15, 222);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(776, 236);
@@ -239,7 +239,7 @@
             this.tsbFindContact,
             this.tsbNavBack,
             this.tsbNavForward});
-            this.toolStrip1.Location = new System.Drawing.Point(254, 4);
+            this.toolStrip1.Location = new System.Drawing.Point(235, 4);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(183, 25);
             this.toolStrip1.TabIndex = 7;
@@ -458,7 +458,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 560);
+            this.ClientSize = new System.Drawing.Size(800, 467);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
