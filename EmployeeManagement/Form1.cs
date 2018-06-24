@@ -20,6 +20,7 @@ namespace EmployeeManagement
 {
     public partial class Form1 : Form
     {
+        // *** These are my member variables ***
         List<Employee> employees = new List<Employee>(); // Create a typed list of contacts
         Employee currentEmployee; // Create a single Employee instance
         int currentPosition;      // Used to hold current position
@@ -29,75 +30,55 @@ namespace EmployeeManagement
             InitializeComponent();
         }
 
-        // Exit Code
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
+
+        // *** This section is for my event handlers ***
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        // When show 3 is checked, only show 3 rows
+        // Exits Program
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        // Only shows 3 records
         private void rbShow3_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShow3.Checked == true)
             {
-                // For loop to get row count and hide all rows
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    // Initially hide each row
-                    dataGridView1.Rows[i].Visible = false;
-
-                    // Iterate through rows and make first 3 visible
-                    for (int j = 0; j < 3; j++)
-                    {
-                        dataGridView1.Rows[j].Visible = true;
-                    }
-                }
+                IfShow3();
             }
         }
 
-        // When show 5 is checked, only show 5 rows
+        // Only Shows 5 records
         private void rbShow5_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShow5.Checked == true)
             {
-                // For loop to get row count and hide all rows
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    // Initially hide each row
-                    dataGridView1.Rows[i].Visible = false;
-
-                    // Iterate through rows and make first 5 visible
-                    for (int j = 0; j < 5; j++)
-                    {
-                        dataGridView1.Rows[j].Visible = true;
-                    }
-                }
+                IfShow5();
             }
         }
 
-        // When show all is checked, show everything
+        // Shows all records
         private void rbShowAll_CheckedChanged(object sender, EventArgs e)
         {
             if (rbShowAll.Checked == true)
             {
-                // For loop to get rown count and make all rows visible.
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    dataGridView1.Rows[i].Visible = true;
-                }
+                IfShowAll();
             }
         }
 
+        // Loads file
         private void btnProcessFile_Click(object sender, EventArgs e)
         {
             LoadFile();
         }
 
+        // Searches contacts
         private void tsbFindContact_Click(object sender, EventArgs e)
         {
             LoadFile();
@@ -112,97 +93,183 @@ namespace EmployeeManagement
             // Start if statement for combo box (cboSearch) first name
             if (cboSearch.SelectedText == "First Name")
             {
-                // If try/catch statement for searching first name
-                try
-                {
-                    // Using LINQ to objects query to get first matchin first name
-                    var foundEmployee =
-                        (from Employee in employees
-                         where Employee.FirstName == tspSearchTerm.Text
-                         select Employee).FirstOrDefault<Employee>();
-
-                    // set the current employee to the found employee for first name
-                    currentEmployee = foundEmployee;
-                    currentPosition = employees.IndexOf(currentEmployee);
-
-                    //Update the display by loading the found employee
-                    LoadCurrentEmployee();
-
-                    //Clear the search term textbox and return
-                    tspSearchTerm.Text = string.Empty;
-                    return;
-                }
-
-                catch
-                {
-                    MessageBox.Show("No results found");
-                }
+                IfFirstName();
             }
 
             // Start if statement for combo box (cboSearch) last name
             if (cboSearch.SelectedText == "Last Name")
             {
-                // If try/catch statement for last name
-                try
-                {
-                    // Using LINQ to objects query to get first matching last name
-                    var foundEmployee =
-                        (from Employee in employees
-                         where Employee.LastName == tspSearchTerm.Text
-                         select Employee).FirstOrDefault<Employee>();
-
-                    // set the current employee to the found employee for last name
-                    currentEmployee = foundEmployee;
-                    currentPosition = employees.IndexOf(currentEmployee);
-
-                    // Update the display by loading the found employee
-                    LoadCurrentEmployee();
-
-                    //Clear the search term textbox and return
-                    tspSearchTerm.Text = string.Empty;
-                    return;
-                }
-
-                catch
-                {
-                    MessageBox.Show("No results found");
-                }
+                IfLastName();
             }
 
+            
             //Start if statement for combo box (cboSearch) Street address
             if (cboSearch.SelectedText == "Street Address")
             {
-                // If try/catch statement for street address
-                try
+                IfAddress();
+            }
+        }
+
+        // Scroll through previous contacts
+        private void tsbNavBack_Click(object sender, EventArgs e)
+        {
+            // Dont exceed the left limit
+            if (currentPosition != 0)
+            {
+                currentPosition--;
+                currentEmployee = employees[currentPosition];
+                LoadCurrentEmployee();
+                
+            }
+        }
+
+        // Scroll through next contacts
+        private void tsbNavForward_Click(object sender, EventArgs e)
+        {
+            // dont exceed the right limit
+            if (currentPosition < employees.Count - 1)
+            {
+                currentPosition++;
+                currentEmployee = employees[currentPosition];
+                LoadCurrentEmployee();
+            }
+        }
+
+        
+        // *** This section is simply for cleaning up my code ***
+
+        
+            // For loop to get row count and hide all rows for showing 3 records
+        private void IfShow3()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                // Initially hide each row
+                dataGridView1.Rows[i].Visible = false;
+
+                // Iterate through rows and make first 3 visible
+                for (int j = 0; j < 3; j++)
                 {
-                    // Using LINQ to objects query to get first matching street address
-                    var foundEmployee =
-                        (from Employee in employees
-                         where Employee.StreetAddress == tspSearchTerm.Text
-                         select Employee).FirstOrDefault<Employee>();
-
-                    // set the current employee to the found employee for street address
-                    currentEmployee = foundEmployee;
-                    currentPosition = employees.IndexOf(currentEmployee);
-
-                    // update the display by loading the found employee
-                    LoadCurrentEmployee();
-
-                    // Clear the search term textbox and return
-                    tspSearchTerm.Text = string.Empty;
-                    return;
-                }
-
-                catch
-                {
-                    MessageBox.Show("No results found");
+                    dataGridView1.Rows[j].Visible = true;
                 }
             }
         }
 
+        // For loop to get row count and hide all rows for showing 5 records
+        private void IfShow5()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                // Initially hide each row
+                dataGridView1.Rows[i].Visible = false;
+
+                // Iterate through rows and make first 5 visible
+                for (int j = 0; j < 5; j++)
+                {
+                    dataGridView1.Rows[j].Visible = true;
+                }
+            }
+        }
+
+        // For loop to get rown count and make all rows visible.
+        private void IfShowAll()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                dataGridView1.Rows[i].Visible = true;
+            }
+        }
+            
+        // If try/catch statement for searching first name
+        private void IfFirstName()
+        {
+            try
+            {
+                // Using LINQ to objects query to get first matchin first name
+                var foundEmployee =
+                    (from Employee in employees
+                     where Employee.FirstName == tspSearchTerm.Text
+                     select Employee).FirstOrDefault<Employee>();
+
+                // set the current employee to the found employee for first name
+                currentEmployee = foundEmployee;
+                currentPosition = employees.IndexOf(currentEmployee);
+
+                //Update the display by loading the found employee
+                LoadCurrentEmployee();
+
+                //Clear the search term textbox and return
+                tspSearchTerm.Text = string.Empty;
+                return;
+            }
+
+            catch
+            {
+                MessageBox.Show("No results found");
+            }
+        }
+
+        // If try/catch statement for searching last name
+        private void IfLastName()
+        {
+            try
+            {
+                // Using LINQ to objects query to get first matching last name
+                var foundEmployee =
+                    (from Employee in employees
+                     where Employee.LastName == tspSearchTerm.Text
+                     select Employee).FirstOrDefault<Employee>();
+
+                // set the current employee to the found employee for last name
+                currentEmployee = foundEmployee;
+                currentPosition = employees.IndexOf(currentEmployee);
+
+                // Update the display by loading the found employee
+                LoadCurrentEmployee();
+
+                //Clear the search term textbox and return
+                tspSearchTerm.Text = string.Empty;
+                return;
+            }
+
+            catch
+            {
+                MessageBox.Show("No results found");
+            }
+        }
+
+        // If try/catch statement for searching street address
+        private void IfAddress()
+        {
+            try
+            {
+                // Using LINQ to objects query to get first matching street address
+                var foundEmployee =
+                    (from Employee in employees
+                     where Employee.StreetAddress == tspSearchTerm.Text
+                     select Employee).FirstOrDefault<Employee>();
+
+                // set the current employee to the found employee for street address
+                currentEmployee = foundEmployee;
+                currentPosition = employees.IndexOf(currentEmployee);
+
+                // update the display by loading the found employee
+                LoadCurrentEmployee();
+
+                // Clear the search term textbox and return
+                tspSearchTerm.Text = string.Empty;
+                return;
+            }
+
+            catch
+            {
+                MessageBox.Show("No results found");
+            }
+        }
+
+        // Clears all text fields
         private void ClearScreen()
         {
-            // Clears all text fields
             txtFirstName.Text = string.Empty;
             txtLastName.Text = string.Empty;
             txtStreetAddress.Text = string.Empty;
@@ -212,9 +279,9 @@ namespace EmployeeManagement
             //Rest goes here
         }
 
+        // Populate Text Fields with Employee Data
         private void LoadCurrentEmployee()
         {
-            // Populate Text Fields with Employee Data
             txtFirstName.Text = currentEmployee.FirstName;
             txtLastName.Text = currentEmployee.LastName;
             txtStreetAddress.Text = currentEmployee.StreetAddress;
@@ -223,6 +290,7 @@ namespace EmployeeManagement
             txtZip.Text = currentEmployee.Zip;
         }
 
+        // Loads file and adds information into objects
         private void LoadFile()
         {
             // Load File Here

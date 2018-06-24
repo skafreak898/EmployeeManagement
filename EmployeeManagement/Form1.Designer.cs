@@ -242,7 +242,7 @@
             this.tsbNavForward});
             this.toolStrip1.Location = new System.Drawing.Point(362, 4);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(183, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(214, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -258,7 +258,7 @@
             this.tsbFindContact.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFindContact.Name = "tsbFindContact";
             this.tsbFindContact.Size = new System.Drawing.Size(23, 22);
-            this.tsbFindContact.Text = "Find Contact By Name";
+            this.tsbFindContact.Text = "Search";
             this.tsbFindContact.Click += new System.EventHandler(this.tsbFindContact_Click);
             // 
             // tsbNavBack
@@ -268,7 +268,8 @@
             this.tsbNavBack.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNavBack.Name = "tsbNavBack";
             this.tsbNavBack.Size = new System.Drawing.Size(23, 22);
-            this.tsbNavBack.Text = "toolStripButton1";
+            this.tsbNavBack.Text = "Previous Record";
+            this.tsbNavBack.Click += new System.EventHandler(this.tsbNavBack_Click);
             // 
             // tsbNavForward
             // 
@@ -277,7 +278,8 @@
             this.tsbNavForward.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbNavForward.Name = "tsbNavForward";
             this.tsbNavForward.Size = new System.Drawing.Size(23, 22);
-            this.tsbNavForward.Text = "toolStripButton2";
+            this.tsbNavForward.Text = "Next Record";
+            this.tsbNavForward.Click += new System.EventHandler(this.tsbNavForward_Click);
             // 
             // label2
             // 
