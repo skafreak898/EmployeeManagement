@@ -1,8 +1,8 @@
 ﻿ //Brandon Walker
  //POS/409
- //Week 2 Individual Employee Management
+ //Week 3 Individual Employee Management
  //Instructor: John Becton
- //Due Date: June 18, 2018
+ //Due Date: June 25, 2018
  
 
 using System;
@@ -171,7 +171,7 @@ namespace EmployeeManagement
             }
         }
 
-        // For loop to get rown count and make all rows visible.
+        // For loop to get row count and make all rows visible.
         private void IfShowAll()
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -288,6 +288,8 @@ namespace EmployeeManagement
             txtCity.Text = currentEmployee.City;
             txtState.Text = currentEmployee.State;
             txtZip.Text = currentEmployee.Zip;
+
+            // Rest goes here
         }
 
         // Loads file and adds information into objects

@@ -69,11 +69,11 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtState = new System.Windows.Forms.TextBox();
             this.txtZip = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtEmployeeType = new System.Windows.Forms.TextBox();
+            this.txtDevType = new System.Windows.Forms.TextBox();
+            this.txtCostCenter = new System.Windows.Forms.TextBox();
+            this.txtSupervisor = new System.Windows.Forms.TextBox();
+            this.txtTaxType = new System.Windows.Forms.TextBox();
             this.cboSearch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -242,7 +242,7 @@
             this.tsbNavForward});
             this.toolStrip1.Location = new System.Drawing.Point(362, 4);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(214, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(183, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -422,40 +422,40 @@
             this.txtZip.Size = new System.Drawing.Size(116, 20);
             this.txtZip.TabIndex = 24;
             // 
-            // textBox7
+            // txtEmployeeType
             // 
-            this.textBox7.Location = new System.Drawing.Point(428, 50);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(233, 20);
-            this.textBox7.TabIndex = 25;
+            this.txtEmployeeType.Location = new System.Drawing.Point(428, 50);
+            this.txtEmployeeType.Name = "txtEmployeeType";
+            this.txtEmployeeType.Size = new System.Drawing.Size(233, 20);
+            this.txtEmployeeType.TabIndex = 25;
             // 
-            // textBox8
+            // txtDevType
             // 
-            this.textBox8.Location = new System.Drawing.Point(428, 80);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(233, 20);
-            this.textBox8.TabIndex = 26;
+            this.txtDevType.Location = new System.Drawing.Point(428, 80);
+            this.txtDevType.Name = "txtDevType";
+            this.txtDevType.Size = new System.Drawing.Size(233, 20);
+            this.txtDevType.TabIndex = 26;
             // 
-            // textBox9
+            // txtCostCenter
             // 
-            this.textBox9.Location = new System.Drawing.Point(428, 110);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(233, 20);
-            this.textBox9.TabIndex = 27;
+            this.txtCostCenter.Location = new System.Drawing.Point(428, 110);
+            this.txtCostCenter.Name = "txtCostCenter";
+            this.txtCostCenter.Size = new System.Drawing.Size(233, 20);
+            this.txtCostCenter.TabIndex = 27;
             // 
-            // textBox10
+            // txtSupervisor
             // 
-            this.textBox10.Location = new System.Drawing.Point(428, 140);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(233, 20);
-            this.textBox10.TabIndex = 28;
+            this.txtSupervisor.Location = new System.Drawing.Point(428, 140);
+            this.txtSupervisor.Name = "txtSupervisor";
+            this.txtSupervisor.Size = new System.Drawing.Size(233, 20);
+            this.txtSupervisor.TabIndex = 28;
             // 
-            // textBox11
+            // txtTaxType
             // 
-            this.textBox11.Location = new System.Drawing.Point(428, 173);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(233, 20);
-            this.textBox11.TabIndex = 29;
+            this.txtTaxType.Location = new System.Drawing.Point(428, 173);
+            this.txtTaxType.Name = "txtTaxType";
+            this.txtTaxType.Size = new System.Drawing.Size(233, 20);
+            this.txtTaxType.TabIndex = 29;
             // 
             // cboSearch
             // 
@@ -475,11 +475,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 467);
             this.Controls.Add(this.cboSearch);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtTaxType);
+            this.Controls.Add(this.txtSupervisor);
+            this.Controls.Add(this.txtCostCenter);
+            this.Controls.Add(this.txtDevType);
+            this.Controls.Add(this.txtEmployeeType);
             this.Controls.Add(this.txtZip);
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.txtCity);
@@ -558,11 +558,11 @@
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.TextBox txtZip;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtEmployeeType;
+        private System.Windows.Forms.TextBox txtDevType;
+        private System.Windows.Forms.TextBox txtCostCenter;
+        private System.Windows.Forms.TextBox txtSupervisor;
+        private System.Windows.Forms.TextBox txtTaxType;
         private System.Windows.Forms.ComboBox cboSearch;
     }
 }
