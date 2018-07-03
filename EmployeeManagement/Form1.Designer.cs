@@ -75,6 +75,7 @@
             this.txtSupervisor = new System.Windows.Forms.TextBox();
             this.txtTaxType = new System.Windows.Forms.TextBox();
             this.cboSearch = new System.Windows.Forms.ComboBox();
+            this.btnProcessJson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -469,11 +470,22 @@
             this.cboSearch.Size = new System.Drawing.Size(121, 21);
             this.cboSearch.TabIndex = 30;
             // 
+            // btnProcessJson
+            // 
+            this.btnProcessJson.Location = new System.Drawing.Point(548, 4);
+            this.btnProcessJson.Name = "btnProcessJson";
+            this.btnProcessJson.Size = new System.Drawing.Size(113, 23);
+            this.btnProcessJson.TabIndex = 31;
+            this.btnProcessJson.Text = "Process Json File";
+            this.btnProcessJson.UseVisualStyleBackColor = true;
+            this.btnProcessJson.Click += new System.EventHandler(this.btnProcessJson_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 467);
+            this.Controls.Add(this.btnProcessJson);
             this.Controls.Add(this.cboSearch);
             this.Controls.Add(this.txtTaxType);
             this.Controls.Add(this.txtSupervisor);
@@ -564,6 +576,7 @@
         private System.Windows.Forms.TextBox txtSupervisor;
         private System.Windows.Forms.TextBox txtTaxType;
         private System.Windows.Forms.ComboBox cboSearch;
+        private System.Windows.Forms.Button btnProcessJson;
     }
 }
 

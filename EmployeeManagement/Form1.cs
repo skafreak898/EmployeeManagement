@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace EmployeeManagement
 {
@@ -76,6 +77,11 @@ namespace EmployeeManagement
         private void btnProcessFile_Click(object sender, EventArgs e)
         {
             LoadFile();
+        }
+
+        private void btnProcessJson_Click(object sender, EventArgs e)
+        {
+            LoadJson();
         }
 
         // Searches contacts
@@ -363,8 +369,44 @@ namespace EmployeeManagement
             }
         }
 
+        public void LoadJson()
+        {
+            using (StreamReader r = new StreamReader ("data.json"))
+            {
+
+                try
+                {
+                    var json = r.ReadToEnd();
+                    List<Employee> employeeDataJson = JsonConvert.DeserializeObject<List<Employee>>(json);
+
+
+                    dataGridView1.Columns.Remove("FirstNameCol");
+                    dataGridView1.Columns.Remove("LastNameCol");
+                    dataGridView1.Columns.Remove("AddressCol");
+                    dataGridView1.Columns.Remove("CityCol");
+                    dataGridView1.Columns.Remove("StateCol");
+                    dataGridView1.Columns.Remove("ZipCol");
+                    dataGridView1.Columns.Remove("EmployeeTypeCol");
+                    dataGridView1.Columns.Remove("DevTypeCol");
+                    dataGridView1.Columns.Remove("CostCenterCol");
+                    dataGridView1.Columns.Remove("SupervisorCol");
+                    dataGridView1.Columns.Remove("TaxTypeCol");
+
+                    var newdata = new List<Employee>(employeeDataJson);
+                    dataGridView1.DataSource = newdata;
+                    
+                }
+                catch
+                {
+                    MessageBox.Show("Something went horribly horribly WRRRONNNGGGGG");
+                }
+
+            }
+        }
+
         // Line to Debug
         string randomStringForDebug = "";
+
     }
 }
 
