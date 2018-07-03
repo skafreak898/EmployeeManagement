@@ -312,59 +312,67 @@ namespace EmployeeManagement
             // If file exists
             if (file.CheckFileExists)
             {
-                // Read file data
-                StreamReader sr = new StreamReader(fileToRead);
 
-                // Read the whole file into a single string
-                string allData = sr.ReadToEnd();
-
-                // Rows of strings split into array
-                string[] stringArray = allData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-
-                // Create data collection
-                List<Employee> employeeData = new List<Employee>();
-
-                // Loop through the array of strings to make employeeData
-                foreach (string line in stringArray)
+                try
                 {
-                    // Seperate each row by , or | into an indexed array
-                    var lineDataRow = line.Split(',', '|');
+                    // Read file data
+                    StreamReader sr = new StreamReader(fileToRead);
 
-                    // Create new object called employee for each row
-                    try
+                    // Read the whole file into a single string
+                    string allData = sr.ReadToEnd();
+
+                    // Rows of strings split into array
+                    string[] stringArray = allData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+
+                    // Create data collection
+                    List<Employee> employeeData = new List<Employee>();
+
+                    // Loop through the array of strings to make employeeData
+                    foreach (string line in stringArray)
                     {
-                        // Create new object
-                        Employee emp = new Employee();
-                        emp.Developer = new Developer();
-                        emp.Manager = new Manager();
+                        // Seperate each row by , or | into an indexed array
+                        var lineDataRow = line.Split(',', '|');
 
-                        // Assign the data to the employee object from the array by index
-                        emp.FirstName = lineDataRow.ElementAt(0);
-                        emp.LastName = lineDataRow.ElementAt(1);
-                        emp.StreetAddress = lineDataRow.ElementAt(2);
-                        emp.City = lineDataRow.ElementAt(3);
-                        emp.State = lineDataRow.ElementAt(4);
-                        emp.Zip = lineDataRow.ElementAt(5);
-                        // *****Developer type should only show IF employee is a developer*****
-                        // *****Cost center only for managers, otherwise display 0*****
-                        emp.Developer.DeveloperType = lineDataRow.ElementAt(6);
-                        emp.Manager.CostCenter = lineDataRow.ElementAt(7);
-                        emp.Developer.Supervisor = lineDataRow.ElementAt(8);
-                        emp.Developer.TaxType = lineDataRow.ElementAt(9);
+                        // Create new object called employee for each row
+                        try
+                        {
+                            // Create new object
+                            Employee emp = new Employee();
+                            emp.Developer = new Developer();
+                            emp.Manager = new Manager();
 
-                        // With each pass, add new employee record to employeeData and employees list
-                        employeeData.Add(emp);
-                        employees.Add(emp);
+                            // Assign the data to the employee object from the array by index
+                            emp.FirstName = lineDataRow.ElementAt(0);
+                            emp.LastName = lineDataRow.ElementAt(1);
+                            emp.StreetAddress = lineDataRow.ElementAt(2);
+                            emp.City = lineDataRow.ElementAt(3);
+                            emp.State = lineDataRow.ElementAt(4);
+                            emp.Zip = lineDataRow.ElementAt(5);
+                            // *****Developer type should only show IF employee is a developer*****
+                            // *****Cost center only for managers, otherwise display 0*****
+                            emp.Developer.DeveloperType = lineDataRow.ElementAt(6);
+                            emp.Manager.CostCenter = lineDataRow.ElementAt(7);
+                            emp.Developer.Supervisor = lineDataRow.ElementAt(8);
+                            emp.Developer.TaxType = lineDataRow.ElementAt(9);
 
-                        
-                        // Add data to DGV
-                        dataGridView1.Rows.Add(lineDataRow);
+                            // With each pass, add new employee record to employeeData and employees list
+                            employeeData.Add(emp);
+                            employees.Add(emp);
 
+
+                            // Add data to DGV
+                            dataGridView1.Rows.Add(lineDataRow);
+
+                        }
+                        catch (Exception)
+                        {
+                            // Dump bad data
+                        }
                     }
-                    catch (Exception)
-                    {
-                        // Dump bad data
-                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Cancelled");
                 }
             }
         }
