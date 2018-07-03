@@ -79,6 +79,7 @@ namespace EmployeeManagement
             LoadFile();
         }
 
+        // Loads json file
         private void btnProcessJson_Click(object sender, EventArgs e)
         {
             LoadJson();
@@ -145,7 +146,7 @@ namespace EmployeeManagement
         // *** This section is simply for cleaning up my code ***
 
         
-            // For loop to get row count and hide all rows for showing 3 records
+        // For loop to get row count and hide all rows for showing 3 records
         private void IfShow3()
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -312,7 +313,7 @@ namespace EmployeeManagement
             // If file exists
             if (file.CheckFileExists)
             {
-
+                // Try/Catch statement created to catch cancelled manual file selection
                 try
                 {
                     // Read file data
@@ -322,7 +323,8 @@ namespace EmployeeManagement
                     string allData = sr.ReadToEnd();
 
                     // Rows of strings split into array
-                    string[] stringArray = allData.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+                    string[] stringArray = allData.Split
+                        (new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
 
                     // Create data collection
                     List<Employee> employeeData = new List<Employee>();
@@ -377,17 +379,21 @@ namespace EmployeeManagement
             }
         }
 
+        // Loads json file and adds information into objects
         public void LoadJson()
         {
+            // Read json file
             using (StreamReader r = new StreamReader ("data.json"))
             {
-
                 try
                 {
+                    // Read whole file into variable
                     var json = r.ReadToEnd();
+
+                    // Create data collection
                     List<Employee> employeeDataJson = JsonConvert.DeserializeObject<List<Employee>>(json);
 
-
+                    // Delete current columns on DGV
                     dataGridView1.Columns.Remove("FirstNameCol");
                     dataGridView1.Columns.Remove("LastNameCol");
                     dataGridView1.Columns.Remove("AddressCol");
@@ -400,7 +406,10 @@ namespace EmployeeManagement
                     dataGridView1.Columns.Remove("SupervisorCol");
                     dataGridView1.Columns.Remove("TaxTypeCol");
 
+                    
                     var newdata = new List<Employee>(employeeDataJson);
+
+                    // Add data to DGV
                     dataGridView1.DataSource = newdata;
                     
                 }
